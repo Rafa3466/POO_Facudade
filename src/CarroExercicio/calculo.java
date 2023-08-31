@@ -7,41 +7,39 @@ import javax.swing.JOptionPane;
 public class calculo {
 
 	public static void main(String[] args) {
-		ArrayList<carro_cadastro> carros = new ArrayList<carro_cadastro>();
+		ArrayList<carro_cadastro> Lista = new ArrayList<carro_cadastro>();
 		
 		do {
 		int operador = Integer.parseInt(JOptionPane.showInputDialog("O que você deseja fazer?\n\n" +
 				"1 - Cadastrar novo carro no estoque\n" + 
-				"2 - Listar por cor\n" + 
-				"3 - Listar por Marca\n" +
+				"2 - Listar por ano de Fabricação\n" + 
+				"3 - Listar por Marca\n" + 
+				"3 - Listar por cor\n\n" +
 				"4 - Sair"));
-		
-		switch (operador) {
-	     case 1:
-	    	 carro_cadastro a = new carro_cadastro();
-	    	 a.cadastro();
-	    	 carros.add(a);
-	    	 
-	       break;
-	     case 2:
-	         String resultado = "Carros cadastrados\n";
-	         for (carro_cadastro a1 : carros) {        // : para poder ver dentro do catalogo carros
-	        	 resultado += a1.exibirDados();
-	         }JOptionPane.showMessageDialog(null, resultado);
-	         break;
-	       case 3:
-	    	   System.out.println("Teste3");
-	         break;
-	       case 4:
-	    	   System.out.println("Teste4");
-	         break;
-	       
-	     default:
-	         System.out.println("O número escolhido é inválido! Digite um número entre 1 a 10.");
+		int op = 0;
+		do {
+			op = Integer.parseInt(JOptionPane.showInputDialog(operador))
+					
+					if(op == 1) {
+						carro_cadastro c = new carro_cadastro();
+						if(c.cadastrar()) {
+							lista.add(c);
+							}
+						}
+	
+				}while(op!=5);
 		}
-		
-		}while (1 == 1);
-		
-	}
+	
+		static void buscaPorPeriodo(ArrayList<carro_cadastro>Lista)	{
+			int anoI = Integer.parseInt(JOptionPane.showInputDialog(null));
+			int anoF = Integer.parseInt(JOptionPane.showInputDialog(null));
+			
+			for( carro_cadastro c : lista) {
+				if( anoI >= c.anoProd && anoF <= c.ano)	{
+					dados += c.marca + "-" + c
+					
+				}
+			}
+		}
 }
-
+}
